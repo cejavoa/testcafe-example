@@ -1,0 +1,31 @@
+version: 2
+
+yarn_install: &yarn_install
+  run:
+    name: yarn install
+    command: yarn install --non-interactive --frozen-lockfile
+
+jobs:
+  run_chrome_functional_tests:
+    docker:
+      - image: circleci/node:10.19.0-browsers
+    steps:
+      - checkout
+      - *yarn_install
+      - run: yarn test:functional:chrome:headless
+
+  run_firefox_functional_tests:
+    docker:
+      - image: circleci/node:10.19.0-browsers
+    steps:
+      - checkout
+      - *yarn_install
+      - run: yarn test:functional:firefox:headless
+
+workflows:
+  version: 2
+  continuous_integration:
+    jobs:
+      - run_chrome_functional_tests
+
+      - run_firefox_functional_tests
