@@ -7,7 +7,7 @@ https://devexpress.github.io/testcafe/documentation/recipes/using-page-model.htm
 
 *Installation*
 
-Ensure that Node.js (version 6 or newer) and npm are installed on your computer before running it:
+Ensure that Node.js (version 6 or newer) and npm/yarn are installed on your computer before running it:
 
 Go to the project root directory and run on console:
 
